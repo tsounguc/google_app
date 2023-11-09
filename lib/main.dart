@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_app/responsive/mobile_screen_layout.dart';
 import 'package:google_app/responsive/responsive_layout_screen.dart';
 import 'package:google_app/responsive/web_screen_layout.dart';
+import 'package:google_app/screens/search_screen.dart';
 
 import 'colors.dart';
 
@@ -21,10 +22,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: backgroundColor,
       ),
-      home: const ResponsiveLayoutScreen(
-        mobileScreenLayout: MobileScreenLayout(),
-        webScreenLayout: WebScreenLayout(),
-      ),
+      home: SearchScreen(),
+      // home: const ResponsiveLayoutScreen(
+      //   mobileScreenLayout: MobileScreenLayout(),
+      //   webScreenLayout: WebScreenLayout(),
+      // ),
     );
   }
 }
