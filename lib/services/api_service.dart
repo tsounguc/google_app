@@ -6,7 +6,7 @@ import "package:http/http.dart" as http;
 import "../config/api_json.dart";
 
 class ApiService {
-  bool isDummyData = true;
+  bool isDummyData = treu;
 
   Future<Map<String, dynamic>> fetchData({required String queryTerm, String start = "0"}) async {
     try {

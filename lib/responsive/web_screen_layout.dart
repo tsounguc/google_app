@@ -69,7 +69,7 @@ class WebScreenLayout extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(height: size.height * 0.25),
-            Expanded(
+            const Expanded(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
