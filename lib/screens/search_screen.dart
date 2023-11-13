@@ -29,7 +29,10 @@ class SearchScreen extends StatelessWidget {
               // Tabs for news image etc
               Padding(
                 padding: EdgeInsets.only(left: size.width <= 768 ? 10 : 150.0),
-                child: const SearchTabs(),
+                child: const SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: SearchTabs(),
+                ),
               ),
               const Divider(
                 height: 0,
@@ -55,17 +58,21 @@ class SearchScreen extends StatelessWidget {
                         itemCount: snapshot.data?['items'].length,
                         itemBuilder: (context, index) {
                           if (snapshot.hasData) {
-                            return Padding(
-                              padding: EdgeInsets.only(
-                                left: size.width <= 768 ? 10 : 150.0,
-                                top: 10,
-                              ),
-                              child: SearchResultComponent(
-                                link: snapshot.data?['items'][index]['formattedUrl'],
-                                linkToGo: snapshot.data?['items'][index]['link'],
-                                text: snapshot.data?['items'][index]['title'],
-                                description: snapshot.data?['items'][index]['snippet'],
-                              ),
+                            return Column(
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.only(
+                                    left: size.width <= 768 ? 10 : 150.0,
+                                    top: 10,
+                                  ),
+                                  child: SearchResultComponent(
+                                    link: snapshot.data?['items'][index]['formattedUrl'],
+                                    linkToGo: snapshot.data?['items'][index]['link'],
+                                    text: snapshot.data?['items'][index]['title'],
+                                    description: snapshot.data?['items'][index]['snippet'],
+                                  ),
+                                ),
+                              ],
                             );
                           }
                           return const Center(
